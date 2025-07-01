@@ -1,0 +1,67 @@
+.container {
+    grid-template-columns: 60% 40%;
+    grid-template-areas:
+        "left-panel right-panel";
+
+    display: grid;
+}
+
+.login {
+    background: #faf6ff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.inputs_container {
+    padding: 5px 5px;
+
+}
+
+.login input {
+    display: block;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+    border: 1px solid rgb(219, 224, 235);
+}
+
+
+.login button {
+    width: 100%;
+    padding: 10px;
+    background: #d0e6ff;
+}
+
+.login button:hover{
+    background: #6daef8;
+    cursor: pointer;
+}
+
+.login a {
+    display: flex;
+}
+
+.create_account {
+    display: flex;
+    padding-bottom: 20px;
+    font-size: 1rem;
+    justify-content: right;
+}
+
+.banner {
+    background: #efe8fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner p{
+    padding: 10px 15px;
+}
