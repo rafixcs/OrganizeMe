@@ -1,12 +1,51 @@
+'use client'
 import Link from "next/link";
 import styles from "./page.module.css";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+/**
+ * TODO:
+ * 1 - Check if fields are filled correctly
+ * 2 - Handle error when logging
+ * 3 - style better -> reference used: https://bitly.com/a/sign_up
+ */
 
 export default function Login() {
+
+  const router = useRouter();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    //alert(`${username} and ${password}`)
+
+    fetch("http://localhost:8080/auth", {
+      method: "POST",
+      body: JSON.stringify({username: username, password: password})
+    })
+      .then((response) => {
+        console.log(`success!!!`)
+        if(response.status == 202) {
+          router.push("/")
+        }
+
+      })
+      .catch((error) => {
+        console.error(`got and error: ${error}`)
+      })
+  }
+
   return (
     <>
       <div className={styles.container}>
         <div className={styles.login}>
-          <form className={styles.login_container}>
+          <form 
+            className={styles.login_container}
+            onSubmit={handleSubmit}
+          >
             <h1>Welcome!</h1>
             <div className={styles.inputs_container}>
               <input 
@@ -14,6 +53,7 @@ export default function Login() {
                 type="text"
                 id="username"
                 name="username"
+                onChange={e => setUsername(e.target.value)}
               />
 
               <input
@@ -21,16 +61,17 @@ export default function Login() {
                 type="password"
                 id="password"
                 name="password"
+                onChange={e => setPassword(e.target.value)}
               />
             </div>
 
             <Link 
               className={styles.create_account}
-              href={`/`}
+              href={`/signup`}
             >
               Create Account
             </Link>
-            <button>Login</button>
+            <button type="submit">Login</button>
             
             <label></label>
           </form>

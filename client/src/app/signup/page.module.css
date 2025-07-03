@@ -1,0 +1,36 @@
+.container{
+    background: #faf6ff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.container h1 {
+    padding-bottom: 30px;
+}
+
+.formCreateAccount input {
+    display: block;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+    border: 1px solid rgb(219, 224, 235);
+}
+
+
+.formCreateAccount button {
+    width: 100%;
+    padding: 10px;
+    background: #d0e6ff;
+}
+
+.formCreateAccount button:hover{
+    background: #6daef8;
+    cursor: pointer;
+}
